@@ -30,7 +30,7 @@
   margin-bottom: 0.5em;
 }
 img {
-  max-width: 100px;
+  max-width: 96px;
 }
 .imagen {
   margin-bottom: 1em;
@@ -46,7 +46,11 @@ img {
   justify-content: center;
   align-items: center;
 }
-
+.total {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 1em;
+}
 #card2 {
   background-color: #f0f0f0;
   padding: 2em;

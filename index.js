@@ -1,19 +1,37 @@
-const btn1 = document.getElementById('btn1')
-const btn2 = document.getElementById('btn2')
+const btn1 = document.querySelector('#btn1')
+const btn2 = document.querySelector('#btn2')
 const card1 = document.getElementById('card1')
 const card2 = document.getElementById('card2')
+const container = document.getElementsByClassName('.container')
 let clicks = 0
 
 const clickBtn1 = btn1.addEventListener('click', () => {
     const ramdomUno = random1(0, 152)
     fetchData(ramdomUno)
     clicks++
+    btn1.setAttribute('disabled', '')
+    volverAJugar(clicks)
 })
 const clickBtn2 = btn2.addEventListener('click', () => {
     const ramdomDos = random2(0, 152)
     fetchData2(ramdomDos)
     clicks++
+    btn2.setAttribute('disabled', '')
+    volverAJugar(clicks)
 })
+
+const volverAJugar = (clicks) =>{
+    if(clicks === 2){
+        const createButton = () =>{
+            let boton = document.createElement('div')
+            boton.innerHTML(`<button>Esto es un botón</button>`)
+            container.appendChild(boton)
+        }
+        createButton()
+    } else{
+        console.log('error')
+    }
+}
 
 // VARIABLES RANDOM
 const random1 = (min, max) => {
@@ -75,10 +93,12 @@ const pintarCard1 = (pokemon1) => {
     let imagen1 = pokemon1.sprites.front_default
     let valorAtaque1 = pokemon1.stats[1].base_stat
     let valorDefensa1 = pokemon1.stats[2].base_stat
+    let valorTotal1 = valorAtaque1 + valorDefensa1
     const nm1 = document.getElementById('nm1')
     const img1 = document.getElementById('imagen1')
     const at1 = document.getElementById('at1')
     const df1 = document.getElementById('df1')
+    const tt1 = document.getElementById('tt1')
 
     // NOMBRE
     const nombre1 = document.createTextNode(`${valorNombre1}`)
@@ -88,6 +108,9 @@ const pintarCard1 = (pokemon1) => {
     // ATAQUE
     const ataque1 = document.createTextNode(` ${valorAtaque1}`)
     at1.appendChild(ataque1)
+    // TOTAL
+    const total1 = document.createTextNode(` ${valorTotal1}`)
+    tt1.appendChild(total1)
     // COLOREAR ATAQUE
     colorearAtaque(valorAtaque1, at1)
     // DEFENSA
@@ -100,10 +123,12 @@ const pintarCard2 = (pokemon2) => {
     let imagen2 = pokemon2.sprites.front_default
     let valorAtaque2 = pokemon2.stats[1].base_stat
     let valorDefensa2 = pokemon2.stats[2].base_stat
+    let valorTotal2 = valorAtaque2 + valorDefensa2
     const nm2 = document.getElementById('nm2')
     const img2 = document.getElementById('imagen2')
     const at2 = document.getElementById('at2')
     const df2 = document.getElementById('df2')
+    const tt2 = document.getElementById('tt2')
 
     // NOMBRE
     const nombre2 = document.createTextNode(`${valorNombre2}`)
@@ -113,6 +138,9 @@ const pintarCard2 = (pokemon2) => {
     // ATAQUE
     const ataque2 = document.createTextNode(` ${valorAtaque2}`)
     at2.appendChild(ataque2)
+    // TOTAL 
+    const total2 = document.createTextNode(` ${valorTotal2}`)
+    tt2.appendChild(total2)
     // COLOREAR ATAQUE
     colorearAtaque(valorAtaque2, at2)
     // DEFENSA
