@@ -1,16 +1,18 @@
 const btn1 = document.getElementById('btn1')
 const btn2 = document.getElementById('btn2')
-const card1 = document.getElementById('1')
-const card2 = document.getElementById('2')
+const card1 = document.getElementById('card1')
+const card2 = document.getElementById('card2')
+let clicks = 0
 
 const clickBtn1 = btn1.addEventListener('click', () => {
     const ramdomUno = random1(0, 152)
     fetchData(ramdomUno)
-    
+    clicks++
 })
 const clickBtn2 = btn2.addEventListener('click', () => {
     const ramdomDos = random2(0, 152)
     fetchData2(ramdomDos)
+    clicks++
 })
 
 // VARIABLES RANDOM

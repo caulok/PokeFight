@@ -39,6 +39,7 @@ img {
   width: 100px;
 }
 .card {
+  background-color: #f0f0f0;
   width: 150px;
   display: flex;
   flex-direction: column;
@@ -46,13 +47,13 @@ img {
   align-items: center;
 }
 
-div#\32 {
+#card2 {
   background-color: #f0f0f0;
   padding: 2em;
   border-radius: 1em;
   box-shadow: -5px 5px 5px #00000040;
 }
-div#\31 {
+#card1 {
   background-color: #f0f0f0;
   padding: 2em;
   border-radius: 1em;
@@ -84,4 +85,7 @@ input[type="button"] {
 }
 .bad {
   color: red;
+}
+.cardGanadora {
+  background-color: gold !important;
 }
