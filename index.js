@@ -2,34 +2,52 @@ const btn1 = document.querySelector('#btn1')
 const btn2 = document.querySelector('#btn2')
 const card1 = document.getElementById('card1')
 const card2 = document.getElementById('card2')
-const container = document.getElementsByClassName('.container')
-let clicks = 0
+const container = document.querySelector('.container')
+let valores = []
+console.log(valores)
 
+// CAMBIAR NOMBRE PLAYERS
+const p1 = document.querySelector('#p1')
+const p2 = document.querySelector('#p2')
+
+const cambiarNombres = () => {
+    p1.addEventListener('click', () => {
+        const primerPlayer = prompt('JUGADOR 1?')
+        p1.innerHTML = primerPlayer.toUpperCase()
+    })
+    p2.addEventListener('click', () => {
+        const segundoPlayer = prompt('JUGADOR 2?')
+         p2.innerHTML = segundoPlayer.toUpperCase()
+    })
+}
+cambiarNombres()
+
+// BOTONES GO
 const clickBtn1 = btn1.addEventListener('click', () => {
     const ramdomUno = random1(0, 152)
     fetchData(ramdomUno)
-    clicks++
     btn1.setAttribute('disabled', '')
-    volverAJugar(clicks)
+    botonRestart()
 })
 const clickBtn2 = btn2.addEventListener('click', () => {
     const ramdomDos = random2(0, 152)
     fetchData2(ramdomDos)
-    clicks++
     btn2.setAttribute('disabled', '')
-    volverAJugar(clicks)
+    botonRestart()
+    Math.max(...valores)
 })
 
-const volverAJugar = (clicks) =>{
-    if(clicks === 2){
-        const createButton = () =>{
-            let boton = document.createElement('div')
-            boton.innerHTML(`<button>Esto es un botón</button>`)
-            container.appendChild(boton)
-        }
-        createButton()
-    } else{
-        console.log('error')
+// BOTON RESTART
+const botonRestart = () => {
+    if (btn1.hasAttribute('disabled') && btn2.hasAttribute('disabled')) {
+        const restart = document.createElement('input')
+        restart.setAttribute('value', 'RESTART')
+        restart.setAttribute('type', 'button')
+        restart.classList.add('restart')
+        container.appendChild(restart)
+        restart.addEventListener('click', () => {
+            location.reload()
+        })
     }
 }
 
@@ -43,7 +61,7 @@ const random2 = (min, max) => {
 
 // COLOREAR
 const colorearAtaque = (valorAtaque1, at1, valorAtaque2, at2) => {
-    if (valorAtaque1, at1) {
+    if (valorAtaque1 >= 50) {
         at1.classList.add('good')
     } else if (valorAtaque1 < 50) {
         at1.classList.add('bad')
@@ -86,7 +104,6 @@ const fetchData2 = async (random2) => {
         console.log(error)
     }
 }
-
 // PINTAR CARDS CON LA INFORMACIÓN
 const pintarCard1 = (pokemon1) => {
     let valorNombre1 = pokemon1.name
@@ -117,6 +134,7 @@ const pintarCard1 = (pokemon1) => {
     const defensa1 = document.createTextNode(` ${valorDefensa1}`)
     df1.appendChild(defensa1)
     colorearDefensa(valorDefensa1, df1)
+    valores.push(valorTotal1)
 }
 const pintarCard2 = (pokemon2) => {
     let valorNombre2 = pokemon2.name
@@ -147,4 +165,5 @@ const pintarCard2 = (pokemon2) => {
     const defensa2 = document.createTextNode(` ${valorDefensa2}`)
     df2.appendChild(defensa2)
     colorearDefensa(valorDefensa2, df2)
+    valores.push(valorTotal2)
 }
