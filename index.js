@@ -3,38 +3,34 @@ const btn2 = document.querySelector('#btn2')
 const card1 = document.getElementById('card1')
 const card2 = document.getElementById('card2')
 const container = document.querySelector('.container')
-let valores = []
-console.log(valores)
-
-// CAMBIAR NOMBRE PLAYERS
 const p1 = document.querySelector('#p1')
 const p2 = document.querySelector('#p2')
+let valores = []
 
+// CAMBIAR NOMBRE PLAYERS
 const cambiarNombres = () => {
     p1.addEventListener('click', () => {
-        const primerPlayer = prompt('JUGADOR 1?')
+        const primerPlayer = prompt('PLAYER 1 NAME?')
         p1.innerHTML = primerPlayer.toUpperCase()
     })
     p2.addEventListener('click', () => {
-        const segundoPlayer = prompt('JUGADOR 2?')
-         p2.innerHTML = segundoPlayer.toUpperCase()
+        const segundoPlayer = prompt('PLAYER 2 NAME?')
+        p2.innerHTML = segundoPlayer.toUpperCase()
     })
 }
-cambiarNombres()
 
 // BOTONES GO
 const clickBtn1 = btn1.addEventListener('click', () => {
-    const ramdomUno = random1(0, 152)
-    fetchData(ramdomUno)
+    const randomUno = random1(0, 152)
+    fetchData(randomUno)
     btn1.setAttribute('disabled', '')
     botonRestart()
 })
 const clickBtn2 = btn2.addEventListener('click', () => {
-    const ramdomDos = random2(0, 152)
-    fetchData2(ramdomDos)
+    const randomDos = random2(0, 152)
+    fetchData2(randomDos)
     btn2.setAttribute('disabled', '')
     botonRestart()
-    Math.max(...valores)
 })
 
 // BOTON RESTART
@@ -51,7 +47,7 @@ const botonRestart = () => {
     }
 }
 
-// VARIABLES RANDOM
+// OBTENER NUMEROS RANDOM
 const random1 = (min, max) => {
     return Math.floor(Math.random() * (max - min)) - min;
 }
@@ -167,3 +163,8 @@ const pintarCard2 = (pokemon2) => {
     colorearDefensa(valorDefensa2, df2)
     valores.push(valorTotal2)
 }
+
+const main = () => {
+    cambiarNombres()
+}
+main()

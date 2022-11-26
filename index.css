@@ -4,8 +4,15 @@
   padding: 0;
   margin: 0;
 }
+#contenedorImg1{
+  background-color: #b7cdd7;
+}
+#contenedorImg2{
+  background-color: #b8d6b8;
+}
 .player{
   margin-bottom: 1em;
+  transition: 0.7s;
 }
 .container {
   display: flex;
@@ -31,7 +38,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #00000060;
+  background: #00000070;
 }
 div#block1, div#block2, span, .restart {
   z-index: 1;
@@ -45,6 +52,10 @@ div#block1, div#block2, span, .restart {
   box-shadow: 5px 5px 0px;
   color: #000;
   cursor: pointer;
+  transition: 0.7s;
+}
+.restart:hover{
+  background-color: rgb(194, 194, 194);
 }
 .nombre {
   font-size: 1em;
@@ -58,13 +69,14 @@ div#block1, div#block2, span, .restart {
   margin-bottom: 0.5em;
 }
 img {
-  max-width: 96px;
+  max-width: 100px;
 }
 .imagen {
   margin-bottom: 2em;
   background-color: white;
   width: 100px;
   height: 100px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +84,7 @@ img {
 .card {
   background-color: #f0f0f0;
   width: 200px;
-  height: 240px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,9 +120,17 @@ input[type="button"] {
   margin-top: 1em;
   box-shadow: 5px 5px #00000090;
   cursor: pointer;
+  transition: 0.7s;
 }
+input[type="button"]:hover {
+  width: 100%;
+}
+
+
 #p1:hover, #p2:hover{
   cursor: pointer;
+  opacity: 0.7;
+  font-size: 1.05em;
 }
 .good {
   color: green;
