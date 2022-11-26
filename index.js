@@ -1,11 +1,34 @@
-const btn1 = document.querySelector('#btn1')
-const btn2 = document.querySelector('#btn2')
-const card1 = document.getElementById('card1')
-const card2 = document.getElementById('card2')
+// DOM
 const container = document.querySelector('.container')
+// DOM CARD1 
+const card1 = document.getElementById('card1')
 const p1 = document.querySelector('#p1')
+const nm1 = document.getElementById('nm1')
+const img1 = document.getElementById('imagen1')
+const at1 = document.getElementById('at1')
+const df1 = document.getElementById('df1')
+const tt1 = document.getElementById('tt1')
+const btn1 = document.querySelector('#btn1')
+// DOM CARD2 
+const card2 = document.getElementById('card2')
 const p2 = document.querySelector('#p2')
+const nm2 = document.getElementById('nm2')
+const img2 = document.getElementById('imagen2')
+const at2 = document.getElementById('at2')
+const df2 = document.getElementById('df2')
+const tt2 = document.getElementById('tt2')
+const btn2 = document.querySelector('#btn2')
 let valores = []
+
+class Pokemon {
+    constructor(nombre, imagen, ataque, defensa, total) {
+        this.nombre = nombre,
+            this.imagen = imagen,
+            this.ataque = ataque,
+            this.defensa = defensa,
+            this.total = total
+    }
+}
 
 // CAMBIAR NOMBRE PLAYERS
 const cambiarNombres = () => {
@@ -24,6 +47,7 @@ const clickBtn1 = btn1.addEventListener('click', () => {
     const randomUno = random1(0, 152)
     fetchData(randomUno)
     btn1.setAttribute('disabled', '')
+    btn2.removeAttribute('disabled')
     botonRestart()
 })
 const clickBtn2 = btn2.addEventListener('click', () => {
@@ -36,6 +60,7 @@ const clickBtn2 = btn2.addEventListener('click', () => {
 // BOTON RESTART
 const botonRestart = () => {
     if (btn1.hasAttribute('disabled') && btn2.hasAttribute('disabled')) {
+        resultadoListo();
         const restart = document.createElement('input')
         restart.setAttribute('value', 'RESTART')
         restart.setAttribute('type', 'button')
@@ -100,68 +125,70 @@ const fetchData2 = async (random2) => {
         console.log(error)
     }
 }
+
 // PINTAR CARDS CON LA INFORMACIÓN
 const pintarCard1 = (pokemon1) => {
-    let valorNombre1 = pokemon1.name
-    let imagen1 = pokemon1.sprites.front_default
-    let valorAtaque1 = pokemon1.stats[1].base_stat
-    let valorDefensa1 = pokemon1.stats[2].base_stat
-    let valorTotal1 = valorAtaque1 + valorDefensa1
-    const nm1 = document.getElementById('nm1')
-    const img1 = document.getElementById('imagen1')
-    const at1 = document.getElementById('at1')
-    const df1 = document.getElementById('df1')
-    const tt1 = document.getElementById('tt1')
+    const poke1 = new Pokemon(pokemon1.name, pokemon1.sprites.front_default, pokemon1.stats[1].base_stat, pokemon1.stats[2].base_stat, (pokemon1.stats[1].base_stat + pokemon1.stats[2].base_stat))
 
     // NOMBRE
-    const nombre1 = document.createTextNode(`${valorNombre1}`)
+    const nombre1 = document.createTextNode(`${poke1.nombre}`)
     nm1.appendChild(nombre1)
-    // DEFINIR IMAGEN 
-    img1.setAttribute('src', imagen1)
-    // ATAQUE
-    const ataque1 = document.createTextNode(` ${valorAtaque1}`)
+    // // DEFINIR IMAGEN 
+    img1.setAttribute('src', poke1.imagen)
+    // // ATAQUE
+    const ataque1 = document.createTextNode(` ${poke1.ataque}`)
     at1.appendChild(ataque1)
-    // TOTAL
-    const total1 = document.createTextNode(` ${valorTotal1}`)
-    tt1.appendChild(total1)
-    // COLOREAR ATAQUE
-    colorearAtaque(valorAtaque1, at1)
-    // DEFENSA
-    const defensa1 = document.createTextNode(` ${valorDefensa1}`)
+    // // DEFENSA
+    const defensa1 = document.createTextNode(` ${poke1.defensa}`)
     df1.appendChild(defensa1)
-    colorearDefensa(valorDefensa1, df1)
-    valores.push(valorTotal1)
+    // // TOTAL
+    const total1 = document.createTextNode(` ${poke1.total}`)
+    tt1.appendChild(total1)
+    // // COLOREAR
+    colorearAtaque(poke1.ataque, at1)
+    colorearDefensa(poke1.defensa, df1)
+    console.log(poke1)
+    valores.push(poke1.total)
 }
 const pintarCard2 = (pokemon2) => {
-    let valorNombre2 = pokemon2.name
-    let imagen2 = pokemon2.sprites.front_default
-    let valorAtaque2 = pokemon2.stats[1].base_stat
-    let valorDefensa2 = pokemon2.stats[2].base_stat
-    let valorTotal2 = valorAtaque2 + valorDefensa2
-    const nm2 = document.getElementById('nm2')
-    const img2 = document.getElementById('imagen2')
-    const at2 = document.getElementById('at2')
-    const df2 = document.getElementById('df2')
-    const tt2 = document.getElementById('tt2')
+    const poke2 = new Pokemon(pokemon2.name, pokemon2.sprites.front_default, pokemon2.stats[1].base_stat, pokemon2.stats[2].base_stat, (pokemon2.stats[1].base_stat + pokemon2.stats[2].base_stat))
 
     // NOMBRE
-    const nombre2 = document.createTextNode(`${valorNombre2}`)
+    const nombre2 = document.createTextNode(`${poke2.nombre}`)
     nm2.appendChild(nombre2)
-    // DEFINIR IMAGEN 
-    img2.setAttribute('src', imagen2)
-    // ATAQUE
-    const ataque2 = document.createTextNode(` ${valorAtaque2}`)
+    // // DEFINIR IMAGEN 
+    img2.setAttribute('src', poke2.imagen)
+    // // ATAQUE
+    const ataque2 = document.createTextNode(` ${poke2.ataque}`)
     at2.appendChild(ataque2)
-    // TOTAL 
-    const total2 = document.createTextNode(` ${valorTotal2}`)
-    tt2.appendChild(total2)
-    // COLOREAR ATAQUE
-    colorearAtaque(valorAtaque2, at2)
-    // DEFENSA
-    const defensa2 = document.createTextNode(` ${valorDefensa2}`)
+    // // DEFENSA
+    const defensa2 = document.createTextNode(` ${poke2.defensa}`)
     df2.appendChild(defensa2)
-    colorearDefensa(valorDefensa2, df2)
-    valores.push(valorTotal2)
+    // // TOTAL
+    const total2 = document.createTextNode(` ${poke2.total}`)
+    tt2.appendChild(total2)
+    // // COLOREAR
+    colorearAtaque(poke2.ataque, at2)
+    colorearDefensa(poke2.defensa, df2)
+    console.log(poke2)
+    valores.push(poke2.total)
+}
+function resultado() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(valores)
+            try {
+                const total1 = valores[0]
+                const total2 = valores[1]
+                total1 > total2 ? card1.classList.add('pintar') : card2.classList.add('pintar')
+            } catch (error) {
+                console.log(error)
+            }
+        }, 1000);
+    });
+}
+async function resultadoListo() {
+    const result = await resultado();
 }
 
 const main = () => {
