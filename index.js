@@ -173,7 +173,9 @@ const pintarCard2 = (pokemon2) => {
     console.log(poke2)
     valores.push(poke2.total)
 }
-function resultado() {
+
+// OBTENER RESULTADOS
+const resultado = () => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(valores)
@@ -187,7 +189,7 @@ function resultado() {
         }, 1000);
     });
 }
-async function resultadoListo() {
+const resultadoListo = async () => {
     const result = await resultado();
 }
 
