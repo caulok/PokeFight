@@ -80,32 +80,6 @@ const random2 = (min, max) => {
     return Math.floor(Math.random() * (max - min)) - min;
 }
 
-// COLOREAR
-const colorearAtaque = (valorAtaque1, at1, valorAtaque2, at2) => {
-    if (valorAtaque1 >= 50) {
-        at1.classList.add('good')
-    } else if (valorAtaque1 < 50) {
-        at1.classList.add('bad')
-    }
-    if (valorAtaque2 >= 50) {
-        at2.classList.add('good')
-    } else if (valorAtaque2 < 50) {
-        at2.classList.add('bad')
-    }
-}
-const colorearDefensa = (valorDefensa1, df1, valorDefensa2, df2) => {
-    if (valorDefensa1 >= 50) {
-        df1.classList.add('good')
-    } else if (valorDefensa1 < 50) {
-        df1.classList.add('bad')
-    }
-    if (valorDefensa2 >= 50) {
-        df2.classList.add('good')
-    } else if (valorDefensa2 < 50) {
-        df2.classList.add('bad')
-    }
-}
-
 // FETCH DE LA POKEAPI
 const fetchData = async (random1) => {
     try {
@@ -144,10 +118,7 @@ const pintarCard1 = (pokemon1) => {
     // // TOTAL
     const total1 = document.createTextNode(` ${poke1.total}`)
     tt1.appendChild(total1)
-    // // COLOREAR
-    colorearAtaque(poke1.ataque, at1)
-    colorearDefensa(poke1.defensa, df1)
-    console.log(poke1)
+
     valores.push(poke1.total)
 }
 const pintarCard2 = (pokemon2) => {
@@ -167,10 +138,7 @@ const pintarCard2 = (pokemon2) => {
     // // TOTAL
     const total2 = document.createTextNode(` ${poke2.total}`)
     tt2.appendChild(total2)
-    // // COLOREAR
-    colorearAtaque(poke2.ataque, at2)
-    colorearDefensa(poke2.defensa, df2)
-    console.log(poke2)
+
     valores.push(poke2.total)
 }
 
