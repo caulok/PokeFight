@@ -1,16 +1,16 @@
 * {
   font-size: 1em;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   padding: 0;
   margin: 0;
 }
-#contenedorImg1{
+#contenedorImg1 {
   background-color: #b7cdd7;
 }
-#contenedorImg2{
+#contenedorImg2 {
   background-color: #b8d6b8;
 }
-.player{
+.player {
   margin-bottom: 1em;
   transition: 0.7s;
 }
@@ -30,9 +30,9 @@
   background-image: url(media/fondo.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 .container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -40,11 +40,14 @@
   bottom: 0;
   background: #00000070;
 }
-div#block1, div#block2, span, .restart {
+div#block1,
+div#block2,
+span,
+.restart {
   z-index: 1;
 }
 .restart {
-  width: unset!important;
+  width: unset !important;
   height: 3em;
   position: absolute;
   bottom: 10%;
@@ -54,7 +57,7 @@ div#block1, div#block2, span, .restart {
   cursor: pointer;
   transition: 0.7s;
 }
-.restart:hover{
+.restart:hover {
   background-color: rgb(194, 194, 194);
 }
 .nombre {
@@ -91,11 +94,12 @@ img {
   align-items: center;
 }
 .total {
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 1em;
 }
-#card1, #card2 {
+#card1,
+#card2 {
   background-color: #f0f0f0;
   padding: 2em;
   box-shadow: 5px 5px #00000090;
@@ -125,11 +129,12 @@ input[type="button"] {
 input[type="button"]:hover {
   width: 100%;
 }
-.pintar{
-  background-color: gold!important;
+.pintar {
+  background-color: gold !important;
   transition: 0.5s;
 }
-#p1:hover, #p2:hover{
+#p1:hover,
+#p2:hover {
   cursor: pointer;
   opacity: 0.7;
   font-size: 1.05em;
@@ -141,3 +146,57 @@ input[type="button"]:hover {
   color: red;
 }
 
+@media (max-width: 767px) {
+  .datos {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 425px) {
+  * {
+    font-size: 14px;
+  }
+  .container {
+    height: auto;
+    flex-direction: column;
+  }
+  .imagen{
+    margin-bottom: 1em;
+  }
+  .nombre{
+    margin-bottom: 2em;
+  }
+  .block {
+    width: 100%;
+    margin: 2em 0;
+  }
+  .ataque, .defensa{
+    font-size: 12px;
+  }
+  span {
+    margin: 0.5em 0;
+  }
+  .card {
+    width: 80%;
+    height: 210px;
+  }
+  .datos {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .restart {
+    position: relative;
+    margin-bottom: 2em;
+  }
+}
+@media (max-width: 320px) {
+  .datos{
+    flex-direction: column;
+  }
+  .card{
+    height: 220px;
+  }
+}

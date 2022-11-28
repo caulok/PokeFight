@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <html lang="en">
     <meta charset="UTF-8">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="index.css">
     <title>PokeFight</title>
 </head>
+
 <body>
     <div class="container">
         <div class="block" id="block1">
@@ -20,8 +22,10 @@
                     <img src="media/favicon.png" id="imagen1" alt="imagen1">
                 </div>
                 <p class="nombre" id="nm1"></p>
-                <p class="ataque" id="at1">Attack:</p>
-                <p class="defensa" id="df1">Defense:</p>
+                <div class="datos">
+                    <p class="ataque" id="at1">Attack:</p>
+                    <p class="defensa" id="df1">Defense:</p>
+                </div>
                 <p class="total" id="tt1">TOTAL:</p>
             </div>
             <input type="button" value="GO!" id="btn1"></input>
@@ -34,8 +38,11 @@
                     <img src="media/favicon.png" id="imagen2" alt="imagen2">
                 </div>
                 <p class="nombre" id="nm2"></p>
-                <p class="ataque" id="at2">Attack:</p>
-                <p class="defensa" id="df2">Defense:</p>
+
+                <div class="datos">
+                    <p class="ataque" id="at2">Attack:</p>
+                    <p class="defensa" id="df2">Defense:</p>
+                </div>
                 <p class="total" id="tt2">TOTAL:</p>
             </div>
             <input type="button" value="GO!" id="btn2" disabled></input>
@@ -43,4 +50,5 @@
     </div>
     <script src="index.js"></script>
 </body>
+
 </html>
