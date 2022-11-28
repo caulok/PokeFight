@@ -80,6 +80,32 @@ const random2 = (min, max) => {
     return Math.floor(Math.random() * (max - min)) - min;
 }
 
+// COLOREAR
+const colorearAtaque = (valorAtaque1, at1, valorAtaque2, at2) => {
+    if (valorAtaque1 >= 50) {
+        at1.classList.add('good')
+    } else if (valorAtaque1 < 50) {
+        at1.classList.add('bad')
+    }
+    if (valorAtaque2 >= 50) {
+        at2.classList.add('good')
+    } else if (valorAtaque2 < 50) {
+        at2.classList.add('bad')
+    }
+}
+const colorearDefensa = (valorDefensa1, df1, valorDefensa2, df2) => {
+    if (valorDefensa1 >= 50) {
+        df1.classList.add('good')
+    } else if (valorDefensa1 < 50) {
+        df1.classList.add('bad')
+    }
+    if (valorDefensa2 >= 50) {
+        df2.classList.add('good')
+    } else if (valorDefensa2 < 50) {
+        df2.classList.add('bad')
+    }
+}
+
 // FETCH DE LA POKEAPI
 const fetchData = async (random1) => {
     try {
